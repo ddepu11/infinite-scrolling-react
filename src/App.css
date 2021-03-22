@@ -145,6 +145,14 @@ form button {
   font-size: 1.2em;
   padding: 5px 10px;
 }
+.error {
+  padding: 100px 10px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  line-height: 1.6;
+  font-size: 1.5em;
+}
 @media (max-width: 600px) {
   header {
     padding: 0px;
@@ -179,5 +187,11 @@ form button {
   .info img {
     width: 30px;
     height: 30px;
+  }
+  .error {
+    padding: 52px 10px;
+    letter-spacing: 4px;
+    line-height: 1.6;
+    font-size: 1.2em;
   }
 }
