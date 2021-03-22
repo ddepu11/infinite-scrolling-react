@@ -807,7 +807,6 @@ const d = [
 ];
 
 function App() {
-  
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(0);
@@ -864,8 +863,8 @@ function App() {
   }
 
   useEffect(() => {
-    fetchImages();
-    // localData();
+    // fetchImages();
+    localData();
     // eslint-disable-next-line
   }, [page]);
 
@@ -888,6 +887,7 @@ function App() {
         // upscroll code
       }
     });
+
     return window.removeEventListener("scroll", event);
     // eslint-disable-next-line
   }, []);
@@ -910,7 +910,7 @@ function App() {
           likes,
           image: small,
           userImg: medium,
-          updatedAt: updated_at,
+          updatedAt: new Date(updated_at).toLocaleDateString(),
         };
 
         return <Images key={index} {...details} />;
