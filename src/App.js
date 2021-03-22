@@ -827,13 +827,13 @@ function App() {
 
       console.log(page, term);
 
-      if (page > 0 && term === false) {
+      if (page > 0 && term === "") {
         setImages([...images, ...data]);
         console.log("no search");
       } else if (page > 0 && term !== false) {
         setImages([...images, ...data.results]);
-        console.log("page 0 search");
-      } else if (term && page === 0) {
+        console.log("page > 0 search");
+      } else if (term !== "" && page === 0) {
         setImages(data.results);
         console.log("only search");
       } else {
@@ -841,9 +841,7 @@ function App() {
         console.log("default");
       }
 
-      setTimeout(() => {
-        setLoading(false);
-      }, 4000);
+      setLoading(false);
     } catch (error) {
       console.log(error);
       setLoading(false);
@@ -852,7 +850,9 @@ function App() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    setPage(0);
+    setPage(() => {
+      return 0;
+    });
   }
 
   // function localData() {
