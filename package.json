@@ -2,7 +2,7 @@
   "name": "new-react",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://ddepu11.github.io/my-app",
+  "homepage": "https://ddepu11.github.io/infinite-scrolling-react/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
