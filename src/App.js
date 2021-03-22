@@ -822,7 +822,7 @@ function App() {
       finalUrl = `${searchUrl}${API}&page=${page}&query=${term}`;
       // finalUrl = searchUrl + API + `&page=${page}` + `&query=${term}`;
     }
-    console.log(finalUrl);
+
     try {
       const res = await fetch(finalUrl);
       const data = await res.json();
