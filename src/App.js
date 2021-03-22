@@ -809,32 +809,36 @@ const searchUrl = "https://api.unsplash.com/search/photos/";
 function App() {
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(1);
   const [term, setTerm] = useState("");
 
   async function fetchImages() {
     setLoading(true);
 
     let finalUrl = `${baseUrl}${API}&page=${page}`;
-    // let finalUrl = baseUrl + API + `&page=${page}`;
 
     if (term !== "") {
       finalUrl = `${searchUrl}${API}&page=${page}&query=${term}`;
-      // finalUrl = searchUrl + API + `&page=${page}` + `&query=${term}`;
     }
 
     try {
       const res = await fetch(finalUrl);
       const data = await res.json();
 
-      if (page > 0 && term === "") {
+      console.log(page, term);
+
+      if (page > 0 && term === false) {
         setImages([...images, ...data]);
-      } else if (page > 0 && term !== "") {
+        console.log("no search");
+      } else if (page > 0 && term !== false) {
         setImages([...images, ...data.results]);
-      } else if (term !== "") {
+        console.log("page 0 search");
+      } else if (term && page === 0) {
         setImages(data.results);
+        console.log("only search");
       } else {
         setImages(data);
+        console.log("default");
       }
 
       setTimeout(() => {
@@ -844,6 +848,11 @@ function App() {
       console.log(error);
       setLoading(false);
     }
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    setPage(0);
   }
 
   // function localData() {
@@ -864,7 +873,6 @@ function App() {
   useEffect(() => {
     fetchImages();
     // localData();
-    // eslint-disable-next-line
   }, [page]);
 
   useEffect(() => {
@@ -885,10 +893,10 @@ function App() {
       } else {
         // upscroll code
       }
+      // eslint-disable-next-line
     });
 
     return window.removeEventListener("scroll", event);
-    // eslint-disable-next-line
   }, []);
 
   let show =
@@ -926,12 +934,7 @@ function App() {
   return (
     <div className="container">
       <header>
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            setPage(0);
-          }}
-        >
+        <form onSubmit={handleSubmit}>
           <input
             type="text"
             placeholder="Search image"
