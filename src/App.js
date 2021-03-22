@@ -2,17 +2,58 @@ import "./App.css";
 // nLEPyjNGvZS12M6eUrJ0ozaIpQpCNRH5vXRdssymP0c
 // https://api.unsplash.com/
 import Images from "./Images";
+import { useState, useEffect } from "react";
+
+const API = `?client_id=${process.env.REACT_APP_UNSPLASH_API}`;
+const baseUrl = "https://api.unsplash.com/photos/";
 
 function App() {
-  let show;
+  const [images, setImages] = useState();
+  const [loading, setLoading] = useState(true);
+  let finalUrl = baseUrl + API;
 
-  show = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((item) => {
-    return <Images />;
-  });
+  async function fetchImages() {
+    setLoading(true);
+    try {
+      const res = await fetch(finalUrl);
+      const data = await res.json();
+      setImages(data);
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  // useEffect(() => {
+  //   fetchImages();
+  // }, []);
+
+  let show = loading
+    ? ""
+    : images.map((item, index) => {
+        const {
+          likes,
+          urls: { small },
+          user: {
+            updated_at,
+            profile_image: { medium },
+          },
+        } = item;
+
+        const details = {
+          likes,
+          image: small,
+          userImg: medium,
+          updatedAt: updated_at,
+        };
+
+        console.log(details);
+        return <Images key={index} {...details} />;
+      });
 
   return (
     <div className="container">
-      <main className="grid">{show}</main>
+      <main className="grid">{loading ? <h1>Loading...</h1> : show}</main>
     </div>
   );
 }
