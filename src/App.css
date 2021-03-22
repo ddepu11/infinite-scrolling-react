@@ -123,3 +123,25 @@ img {
   justify-self: start;
   align-self: flex-start;
 }
+.loading {
+  font-size: 1.1em;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px 30px;
+  /* border: 1px solid red; */
+  width: 100%;
+}
+header {
+  padding: 20px;
+  text-align: center;
+}
+form input {
+  font-size: 1.2em;
+  padding: 5px 10px;
+}
+form button {
+  font-size: 1.2em;
+  padding: 5px 10px;
+}
