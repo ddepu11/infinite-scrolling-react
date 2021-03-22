@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/infinite-scrolling-react/static/css/main.da1e3750.chunk.css",
+    "main.js": "/infinite-scrolling-react/static/js/main.2d69cff3.chunk.js",
+    "main.js.map": "/infinite-scrolling-react/static/js/main.2d69cff3.chunk.js.map",
+    "runtime-main.js": "/infinite-scrolling-react/static/js/runtime-main.28805e97.js",
+    "runtime-main.js.map": "/infinite-scrolling-react/static/js/runtime-main.28805e97.js.map",
+    "static/js/2.e341f445.chunk.js": "/infinite-scrolling-react/static/js/2.e341f445.chunk.js",
+    "static/js/2.e341f445.chunk.js.map": "/infinite-scrolling-react/static/js/2.e341f445.chunk.js.map",
+    "index.html": "/infinite-scrolling-react/index.html",
+    "static/css/main.da1e3750.chunk.css.map": "/infinite-scrolling-react/static/css/main.da1e3750.chunk.css.map",
+    "static/js/2.e341f445.chunk.js.LICENSE.txt": "/infinite-scrolling-react/static/js/2.e341f445.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.28805e97.js",
+    "static/js/2.e341f445.chunk.js",
+    "static/css/main.da1e3750.chunk.css",
+    "static/js/main.2d69cff3.chunk.js"
+  ]
+}
