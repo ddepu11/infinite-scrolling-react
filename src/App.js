@@ -58,6 +58,7 @@ function App() {
     fetchImages();
   }, [page]);
 
+  
   useEffect(() => {
     const event = window.addEventListener("scroll", () => {
       let finalScroll = window.scrollY + window.innerHeight;
